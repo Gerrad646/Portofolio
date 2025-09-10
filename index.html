@@ -46,14 +46,27 @@
       <h2 class="text-3xl font-bold mb-10 scroll-reveal">Proyek Saya</h2>
       <div class="grid md:grid-cols-2 gap-6 place-items-center">
         <!-- Kalkulator Project -->
-        <div class="relative bg-white shadow-lg rounded-lg overflow-hidden project-card cursor-pointer transform transition-transform duration-500 hover:scale-105 scroll-reveal">
+        <div
+          class="relative bg-white shadow-lg rounded-lg overflow-hidden project-card cursor-pointer transform transition-transform duration-500 hover:scale-105 scroll-reveal w-full max-w-md"
+          data-url="kalkulator.html"
+        >
           <div class="overlay flex items-center justify-center text-center">Klik untuk membuka Kalkulator</div>
           <div class="p-4">
             <h3 class="text-xl font-semibold mb-2 text-center">Kalkulator Bangun Ruang</h3>
             <p class="text-gray-600 text-center">Aplikasi kalkulator interaktif untuk menghitung volume dan luas permukaan bangun ruang.</p>
           </div>
         </div>
-        <!-- Tambahkan project lain di sini, otomatis akan tetap center -->
+        <!-- Coming Soon Project -->
+        <div
+          class="relative bg-white shadow-lg rounded-lg overflow-hidden project-card transform transition-transform duration-500 animate-pulse scroll-reveal w-full max-w-md"
+          style="cursor: not-allowed;"
+        >
+          <div class="overlay flex items-center justify-center text-center opacity-80 bg-gray-700">Segera Hadir</div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 text-center text-gray-400">Project Selanjutnya</h3>
+            <p class="text-gray-400 text-center">Proyek baru akan segera tersedia di sini.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
