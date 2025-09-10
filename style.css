@@ -1,0 +1,28 @@
+/* Animasi Kustom */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp { animation: fadeInUp 1s forwards; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+
+/* Hover efek untuk proyek */
+.project-card:hover .overlay {
+  opacity: 1;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 0.5rem;
+}

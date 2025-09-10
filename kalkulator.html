@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Bangun Ruang</title>
+  <!-- CDN Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-t from-orange-100 to-white text-black font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md fixed w-full z-10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-xl font-extrabold">Kalkulator Bangun Ruang</h1>
+      <a href="../index.html" class="text-blue-600 hover:underline">⬅ Kembali</a>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="min-h-screen flex items-center justify-center px-4 pt-24 pb-10">
+    <div class="max-w-xl w-full bg-white shadow-lg rounded-2xl p-8">
+      <h2 class="text-2xl font-bold mb-6 text-center">Hitung Bangun Ruang</h2>
+
+      <!-- Pilih Bangun -->
+      <label class="block mb-2 font-medium">Pilih Bangun:</label>
+      <select id="bangun" class="w-full p-3 rounded-lg border border-gray-300 mb-6">
+        <option value="kubus">Kubus</option>
+        <option value="balok">Balok</option>
+        <option value="bola">Bola</option>
+        <option value="tabung">Tabung</option>
+        <option value="kerucut">Kerucut</option>
+        <option value="limas">Limas Segiempat</option>
+      </select>
+
+      <!-- Input Fields -->
+      <div id="inputFields" class="space-y-4"></div>
+
+      <!-- Tombol -->
+      <div class="flex gap-4 mt-6">
+        <button onclick="hitung()" class="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Hitung</button>
+        <button onclick="resetForm()" class="flex-1 bg-gray-400 text-white py-2 rounded-lg hover:bg-gray-500">Reset</button>
+      </div>
+
+      <!-- Hasil -->
+      <div id="hasil" class="mt-6 p-4 bg-gray-50 rounded-lg shadow hidden">
+        <h3 class="text-lg font-semibold mb-2">Hasil:</h3>
+        <p id="volume" class="mb-1"></p>
+        <p id="luas"></p>
+        <button onclick="copyHasil()" class="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">Salin Hasil</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script>
+    const inputFields = document.getElementById("inputFields");
+    const hasil = document.getElementById("hasil");
+    const volumeEl = document.getElementById("volume");
+    const luasEl = document.getElementById("luas");
+
+    document.getElementById("bangun").addEventListener("change", buatInput);
+
+    function buatInput() {
+      const bangun = document.getElementById("bangun").value;
+      let html = "";
+      if (bangun === "kubus") {
+        html = `
+          <label>Sisi:</label>
+          <input id="sisi" type="number" class="w-full p-2 rounded-lg border">
+        `;
+      } else if (bangun === "balok") {
+        html = `
+          <label>Panjang:</label><input id="panjang" type="number" class="w-full p-2 rounded-lg border">
+          <label>Lebar:</label><input id="lebar" type="number" class="w-full p-2 rounded-lg border">
+          <label>Tinggi:</label><input id="tinggi" type="number" class="w-full p-2 rounded-lg border">
+        `;
+      } else if (bangun === "bola") {
+        html = `
+          <label>Jari-jari:</label>
+          <input id="r" type="number" class="w-full p-2 rounded-lg border">
+        `;
+      } else if (bangun === "tabung") {
+        html = `
+          <label>Jari-jari:</label><input id="r" type="number" class="w-full p-2 rounded-lg border">
+          <label>Tinggi:</label><input id="t" type="number" class="w-full p-2 rounded-lg border">
+        `;
+      } else if (bangun === "kerucut") {
+        html = `
+          <label>Jari-jari:</label><input id="r" type="number" class="w-full p-2 rounded-lg border">
+          <label>Tinggi:</label><input id="t" type="number" class="w-full p-2 rounded-lg border">
+        `;
+      } else if (bangun === "limas") {
+        html = `
+          <label>Panjang alas:</label><input id="a" type="number" class="w-full p-2 rounded-lg border">
+          <label>Lebar alas:</label><input id="b" type="number" class="w-full p-2 rounded-lg border">
+          <label>Tinggi:</label><input id="t" type="number" class="w-full p-2 rounded-lg border">
+        `;
+      }
+      inputFields.innerHTML = html;
+    }
+    buatInput();
+
+    function hitung() {
+      const bangun = document.getElementById("bangun").value;
+      let volume = 0, luas = 0;
+
+      if (bangun === "kubus") {
+        const s = +document.getElementById("sisi").value;
+        volume = Math.pow(s, 3);
+        luas = 6 * Math.pow(s, 2);
+      } else if (bangun === "balok") {
+        const p = +document.getElementById("panjang").value;
+        const l = +document.getElementById("lebar").value;
+        const t = +document.getElementById("tinggi").value;
+        volume = p * l * t;
+        luas = 2 * (p*l + p*t + l*t);
+      } else if (bangun === "bola") {
+        const r = +document.getElementById("r").value;
+        volume = (4/3) * Math.PI * Math.pow(r, 3);
+        luas = 4 * Math.PI * Math.pow(r, 2);
+      } else if (bangun === "tabung") {
+        const r = +document.getElementById("r").value;
+        const t = +document.getElementById("t").value;
+        volume = Math.PI * Math.pow(r, 2) * t;
+        luas = 2 * Math.PI * r * (r + t);
+      } else if (bangun === "kerucut") {
+        const r = +document.getElementById("r").value;
+        const t = +document.getElementById("t").value;
+        const s = Math.sqrt(Math.pow(r, 2) + Math.pow(t, 2));
+        volume = (1/3) * Math.PI * Math.pow(r, 2) * t;
+        luas = Math.PI * r * (r + s);
+      } else if (bangun === "limas") {
+        const a = +document.getElementById("a").value;
+        const b = +document.getElementById("b").value;
+        const t = +document.getElementById("t").value;
+        volume = (1/3) * a * b * t;
+        const luasAlas = a * b;
+        const luasSisi = 2 * (a * Math.sqrt(Math.pow(b/2,2)+Math.pow(t,2))) +
+                         2 * (b * Math.sqrt(Math.pow(a/2,2)+Math.pow(t,2)));
+        luas = luasAlas + luasSisi;
+      }
+
+      volumeEl.textContent = `Volume: ${volume.toFixed(2)}`;
+      luasEl.textContent = `Luas Permukaan: ${luas.toFixed(2)}`;
+      hasil.classList.remove("hidden");
+    }
+
+    function resetForm() {
+      buatInput();
+      hasil.classList.add("hidden");
+    }
+
+    function copyHasil() {
+      navigator.clipboard.writeText(volumeEl.textContent + " | " + luasEl.textContent);
+      alert("Hasil disalin!");
+    }
+  </script>
+</body>
+</html>
