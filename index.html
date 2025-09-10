@@ -14,7 +14,7 @@
   <!-- Navbar -->
   <nav class="bg-white shadow-md fixed w-full z-10">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <h1 class="text-xl font-extrabold ">Portofolio</h1>
+      <h1 class="text-xl font-extrabold">Portofolio</h1>
       <ul class="flex space-x-10">
         <li><a href="#about" class="hover:text-blue-600">Tentang</a></li>
         <li><a href="#projects" class="hover:text-blue-600">Proyek</a></li>
@@ -24,15 +24,15 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-500 to-cyan-100 text-black">
-    <img src="Image/Marika.jpeg" alt="Foto Profil" class="rounded-full w-40 h-40 border-4 border-white mb-10 animate-fadeInUp">
+  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-500 to-cyan-100 text-black text-center pt-24">
+    <img src="Image/Marika.jpeg" alt="Foto Profil" class="rounded-full w-40 h-40 border-4 border-white mb-10 animate-fadeInUp mx-auto">
     <h2 class="text-5xl font-bold mb-2 opacity-0 animate-fadeInUp animate-delay-200">Halo, Saya Gerrard</h2>
     <p class="text-lg opacity-0 animate-fadeInUp animate-delay-400">Mahasiswa Ilmu Komputer | Tertarik Dengan Web</p>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="max-w-6xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold mb-6 text-center transition-shadow duration-300 scroll-reveal">Tentang Saya</h2>
+  <section id="about" class="min-h-screen flex flex-col items-center justify-center max-w-6xl mx-auto px-4 py-20 text-center">
+    <h2 class="text-3xl font-bold mb-6 transition-shadow duration-300 scroll-reveal">Tentang Saya</h2>
     <p
       id="about-text"
       class="text-center text-black-700 max-w-xl mx-auto transition-shadow duration-300 scroll-reveal"
@@ -41,34 +41,33 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="bg-gray-200 py-20">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-10 text-center scroll-reveal">Proyek Saya</h2>
-      <div class="grid md:grid-cols-2 gap-6">
+  <section id="projects" class="min-h-screen flex flex-col items-center justify-center bg-gray-200 py-20 text-center">
+    <div class="max-w-6xl w-full px-4">
+      <h2 class="text-3xl font-bold mb-10 scroll-reveal">Proyek Saya</h2>
+      <div class="grid md:grid-cols-2 gap-6 place-items-center">
         <!-- Kalkulator Project -->
-        <div class="relative bg-white shadow-lg rounded-lg overflow-hidden project-card cursor-pointer transform transition-transform duration-500 hover:scale-105 scroll-reveal"
-          data-url="kalkulator.html">
-          <div class="overlay">Klik untuk membuka Kalkulator</div>
+        <div class="relative bg-white shadow-lg rounded-lg overflow-hidden project-card cursor-pointer transform transition-transform duration-500 hover:scale-105 scroll-reveal">
+          <div class="overlay flex items-center justify-center text-center">Klik untuk membuka Kalkulator</div>
           <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Kalkulator Bangun Ruang</h3>
-            <p class="text-gray-600">Aplikasi kalkulator interaktif untuk menghitung volume dan luas permukaan bangun ruang.</p>
+            <h3 class="text-xl font-semibold mb-2 text-center">Kalkulator Bangun Ruang</h3>
+            <p class="text-gray-600 text-center">Aplikasi kalkulator interaktif untuk menghitung volume dan luas permukaan bangun ruang.</p>
           </div>
         </div>
+        <!-- Tambahkan project lain di sini, otomatis akan tetap center -->
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
-    <div class="max-w-6xl mx-auto px-4 py-10">
-      <h1 class="text-3xl mb-10 font-bold text-center transition-shadow duration-300 scroll-reveal">Kontak Saya</h1>
-      <div class="grid md:grid-cols-3 gap-6">
-
-        <div class="items-y text-center p-6  transition-shadow duration-300 scroll-reveal">
-          <a href="https://www.instagram.com/wwwstripdot" target="blank">
-            <img src="Image/instagram (1).png" alt="Instagram" class="max-w-16 max-h-16 mb-4 my-auto mx-auto">
+  <section id="contact" class="min-h-screen flex flex-col items-center justify-center px-4">
+    <div class="max-w-3xl w-full py-10 text-center">
+      <h1 class="text-3xl mb-10 font-bold">Kontak Saya</h1>
+      <div class="flex flex-col items-center">
+        <div class="text-center p-6 transition-shadow duration-300 scroll-reveal flex flex-col items-center">
+          <a href="https://www.instagram.com/wwwstripdot" target="_blank" class="flex flex-col items-center hover:scale-105 transition-transform">
+            <img src="Image/instagram (1).png" alt="Instagram" class="w-16 h-16 mb-4">
+            <h3 class="text-xl font-semibold">INSTAGRAM</h3>
           </a>
-          <h3 class="text-xl font-semibold mb-2">INSTAGRAM</h3>
         </div>
       </div>
     </div>
